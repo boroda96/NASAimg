@@ -3,6 +3,7 @@ package org.example;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NASA {
+    private String copyright;
     private  String date;
     private  String explanation;
     private  String hdurl;
@@ -12,6 +13,7 @@ public class NASA {
     private  String url;
 
     public NASA(
+            @JsonProperty("copyright") String copyright,
             @JsonProperty("date") String date,
             @JsonProperty("explanation") String explanation,
             @JsonProperty("hdurl") String hdurl,
@@ -19,6 +21,7 @@ public class NASA {
             @JsonProperty("service_version") String service_version,
             @JsonProperty("title") String title,
             @JsonProperty("url") String url) {
+        this.copyright = copyright;
         this.date = date;
         this.explanation = explanation;
         this.hdurl = hdurl;
@@ -26,6 +29,9 @@ public class NASA {
         this.service_version = service_version;
         this.title = title;
         this.url = url;
+    }
+    public String getCopyright(){
+        return copyright;
     }
 
     public String getDate() {
@@ -59,6 +65,7 @@ public class NASA {
     @Override
     public String toString() {
         return "NASA\n{" +
+                "\n copyright='" + copyright + '\'' +
                 "\ndate='" + date + '\'' +
                 ",\n explanation='" + explanation + '\'' +
                 ",\n hdurl='" + hdurl + '\'' +
